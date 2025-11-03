@@ -60,36 +60,36 @@ from src.common import (
 # ================ Configuration ================
 # Reference trends definition
 REFERENCE_TRENDS = {
-   "AVAX": [
-       [datetime(2023, 11, 9, 12, 0), datetime(2023, 11, 14, 18, 0), "1h", "standard"],
-   ],
-   "MKR": [
-       [datetime(2023, 6, 24, 9, 0), datetime(2023, 7, 18, 5, 0), "4h", "standard"],
-   ],
-   "CRV": [
-       [datetime(2024, 10, 23, 1, 0), datetime(2024, 11, 24, 0, 0), "4h", "uptrend"],
-       [datetime(2024, 11, 4, 0, 0), datetime(2024, 11, 21, 0, 0), "4h", "uptrend_1"],
-       [datetime(2024, 11, 4, 0, 0), datetime(2024, 11, 29, 0, 0), "4h", "uptrend_2"],
-   ],
-   "GMT": [
-       [datetime(2022, 3, 26, 9, 0), datetime(2022, 4, 14, 21, 0), "4h", "uptrend"]
-   ],
-   "SOL": [
-       [datetime(2023, 9, 21, 1, 0), datetime(2023, 10, 15, 21, 0), "4h", "standard"]
-   ],
-   "LQTY": [
-       [datetime(2025, 5, 7, 5, 0), datetime(2025, 5, 9, 21, 0), "30m", "standard"]
-   ],
-   "MOODENG": [
-       [datetime(2025, 5, 8, 0, 0), datetime(2025, 5, 11, 1, 0), "1h", "standard"]
-   ],
+    "AVAX": [
+        [datetime(2023, 11, 10, 4, 0), datetime(2023, 11, 15, 14, 0), "1h", "standard"],
+    ],
+    "MKR": [
+        [datetime(2023, 6, 24, 24, 0), datetime(2023, 7, 18, 20, 0), "4h", "standard"],
+    ],
+    "CRV": [
+        [datetime(2024, 10, 23, 16, 0), datetime(2024, 11, 24, 16, 0), "4h", "uptrend"],
+        [datetime(2024, 11, 4, 16, 0), datetime(2024, 11, 21, 16, 0), "4h", "uptrend_1"],
+        [datetime(2024, 11, 4, 16, 0), datetime(2024, 11, 29, 16, 0), "4h", "uptrend_2"],
+    ],
+    "GMT": [
+        [datetime(2022, 3, 27, 0, 0), datetime(2022, 4, 15, 12, 0), "4h", "uptrend"],
+    ],
+    "SOL": [
+        [datetime(2023, 9, 21, 16, 0), datetime(2023, 10, 16, 12, 0), "4h", "standard"],
+    ],
+    "LQTY": [
+        [datetime(2025, 5, 7, 20, 0), datetime(2025, 5, 10, 12, 0), "30m", "standard"],
+    ],
+    "MOODENG": [
+        [datetime(2025, 5, 8, 15, 0), datetime(2025, 5, 11, 16, 0), "1h", "standard"],
+    ],
 }
 
 # Historical starting point (used only if no cached data exists)
 HISTORICAL_START_DATE = datetime(2021, 1, 1)
 
 # Timezone for datetime conversion
-TIMEZONE = "America/Los_Angeles"
+TIMEZONE = "Asia/Taipei"
 
 # Timeframes to analyze
 TIMEFRAMES_TO_ANALYZE = ["15m", "30m", "1h", "2h", "4h"]

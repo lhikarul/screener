@@ -350,6 +350,9 @@ class CryptoDownloader:
                         current_timestamp = np.int64(response[-1][6]) + 1
                     else:
                         break
+                    
+                    # 新增延遲以避免速率限制 - 每次迴圈請求後延遲 0.2 秒（優化後更安全）
+                    time.sleep(0.2)
 
                 if not all_data:
                     print(f"{crypto} -> No data retrieved")

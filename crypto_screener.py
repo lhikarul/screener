@@ -160,20 +160,29 @@ if __name__ == '__main__':
     print(f"Total cryptos to process: {len(all_cryptos)}")
     
     # Process all cryptos using ProcessPoolExecutor
-    num_cores = min(4, mp.cpu_count())  # Use maximum 4 cores, binance rest api has rate limit
+    # 減少並發數以避免速率限制，從4降到2，更安全
+    num_cores = min(2, mp.cpu_count())  # Use maximum 2 cores to avoid rate limit
     print(f"Using {num_cores} processes")
     with ProcessPoolExecutor(max_workers=num_cores) as executor:
         futures = {executor.submit(process_crypto, crypto, timeframe, days): crypto for crypto in all_cryptos}
         results = []
         
+        # 新增請求計數器和延遲控制，確保整體請求頻率在安全範圍內（優化後適用於800+幣對）
+        request_count = 0
         for future in as_completed(futures):
             crypto = futures[future]
             try:
                 result = future.result()
                 results.append(result)
+                request_count += 1
+                
+                # 每處理5個請求後新增短暫延遲，進一步降低速率（優化：從10改為5，更安全）
+                if request_count % 5 == 0:
+                    time.sleep(0.5)
             except Exception as e:
                 print(f"{crypto} -> Error: {str(e)}")
                 results.append({"crypto": crypto, "status": "failed", "reason": str(e)})
+                request_count += 1
     
     # Process results
     failed_targets = []     # Failed to download data or error happened

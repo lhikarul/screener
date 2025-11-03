@@ -88,7 +88,7 @@ REFERENCE_TRENDS = {
 
 # ================ Configuration ================
 # Timezone for datetime conversion
-TIMEZONE = "America/Los_Angeles"
+TIMEZONE = "Asia/Taipei"
 
 # Output directory path
 
